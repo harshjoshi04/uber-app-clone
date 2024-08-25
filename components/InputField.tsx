@@ -1,7 +1,9 @@
 import React, { FC } from "react";
 import {
   Image,
+  Keyboard,
   KeyboardAvoidingView,
+  Platform,
   Text,
   TextInput,
   TouchableWithoutFeedback,
@@ -23,8 +25,10 @@ const InputField: React.FC<InputFieldProps> = ({
   ...prop
 }) => {
   return (
-    <KeyboardAvoidingView>
-      <TouchableWithoutFeedback>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View className="my-2 w-full">
           <Text
             className={twMerge(
@@ -48,7 +52,7 @@ const InputField: React.FC<InputFieldProps> = ({
             )}
             <TextInput
               className={twMerge(
-                "rounded-full p-4 font-JakartaSemiBold text-[15px] flex-1 text-left",
+                "rounded-full p-2 font-JakartaSemiBold text-[15px] flex-1 text-left",
                 inputStyle
               )}
               secureTextEntry={secureTextEntry}

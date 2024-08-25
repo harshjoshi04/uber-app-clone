@@ -50,12 +50,11 @@ const CustomButton: FC<ButtonProps> = ({
   return (
     <TouchableOpacity
       className={twMerge(
-        `w-full rounded-full flex flex-row p-3 justify-center items-center shadow-md shadow-neutral-400/70`,
+        `w-full rounded-full flex flex-row p-2 justify-center items-center shadow-md shadow-neutral-400/70`,
         getBgVariantStyle(bgVariant),
         className
       )}
-      onPress=
-      {onPress}
+      onPress={onPress}
       {...prop}
     >
       {IconLeft && <IconLeft />}
